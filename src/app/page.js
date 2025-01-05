@@ -1,4 +1,4 @@
-import Header from './components/Header';
+// import Header from './components/Header';
 import Hero from './components/Hero';
 import ServicesSection from './components/ServicesSection';
 import About from './components/About';
@@ -11,7 +11,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 export default function Home() {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <Hero />
       <ServicesSection/>
       <About/>
