@@ -2,7 +2,7 @@
 export default function About() {
     return (
         <>
-            <div className="container lg:grid lg:grid-cols-2 lg:items-center lg:px-24">
+            <div className="container mx-auto lg:grid lg:grid-cols-2 lg:items-center lg:px-24">
                 <img src='whoweare.png' className='ml-16  px-10 py-20  h-full w-4/5' />
                 <div className="text-left mr-16">
                     <h2 className='font-medium text-5xl font-serif text-red-600 mb-6'>Who We Are</h2>

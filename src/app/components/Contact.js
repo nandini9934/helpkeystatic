@@ -1,7 +1,7 @@
 export default function Contact() {
     return (
         <>
-            <section className="container grid grid-cols-2 lg:grid lg:grid-cols-3 text-center text-gray-700">
+            <section className="container mx-auto grid grid-cols-2 lg:grid lg:grid-cols-3 text-center text-gray-700">
                 <div className="col-span-1 p-10">
                     <h2 className="text-2xl font-bold mb-1">Quick Links</h2>
                     <ul className="text-red-600">

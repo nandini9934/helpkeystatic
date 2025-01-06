@@ -1,7 +1,7 @@
 export default function ServicesSection() {
     return (
         <div
-            className="container bg-cover bg-center py-20"
+            className="container mx-auto bg-cover bg-center py-20"
             style={{ backgroundImage: "url('keypoint.jpg')" }}
         >
             <div className="container mx-auto text-center max-w-4xl">

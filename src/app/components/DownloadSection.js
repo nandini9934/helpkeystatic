@@ -1,7 +1,7 @@
 
 export default function DownloadSection() {
     return (
-        <div className="container bg-gray-50 py-10 px-5">
+        <div className="container mx-auto bg-gray-50 py-10 px-5">
             <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 items-center">
                 <div className="flex ml-52">
                     <img src="mobile.png" width={500} />

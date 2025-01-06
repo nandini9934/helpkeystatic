@@ -2,7 +2,7 @@
 
 export default function Footer() {
     return (
-        <footer className="container bg-gradient text-white py-7 relative">
+        <footer className="container mx-auto bg-gradient text-white py-7 relative">
             <div className="justify-evenly items-center px-5 flex space-x-96">
                 <p className="text-sm">Copyright © 2023 | Helpkey</p>
 
