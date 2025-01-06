@@ -30,7 +30,7 @@ export default function Hero() {
 
     return (
         <>
-            <section className='container bg-custom-gradient h-[400px] mb-10 pt-8'>
+            <section className='container bg-custom-gradient h-[500px] mb-10 pt-8'>
                 <div>
                     <div className="flex justify-center px-4 py-2">
                         <img src="logo.png" alt="Logo" className="w-12 h-12 mr-20" />
@@ -46,16 +46,16 @@ export default function Hero() {
                         </ul>
                     </div>
 
-                    <div className="flex justify-center my-16">
-                        <div className="bg-gray-200 px-4 py-2 rounded-full shadow-lg w-full max-w-6xl">
+                    <div className="flex justify-center my-28">
+                        <div className="bg-gray-200 px-4 rounded-full shadow-lg w-full h-[105px] max-w-6xl">
                             {/* Form for searching hotels */}
-                            <div className="grid grid-cols-1 xl:grid xl:grid-cols-12">
+                            <div className="flex items-center grid grid-cols-1 xl:grid xl:grid-cols-12">
                                 <div className="col-span-3 ml-10">
                                     <div className="mt-2 text-l font-bold">Location</div>
                                     <input
                                         type="text"
                                         placeholder="Enter Your City..."
-                                        className="px-4 py-1 mt-2 mb-3 border rounded-full placeholder-gray-600"
+                                        className="px-4 py-1 mt-2 mb-3 border rounded-xl placeholder-gray-600"
                                         onChange={(e) => setCity(e.target.value)} // Update city state
                                     />
                                 </div>
@@ -64,7 +64,7 @@ export default function Hero() {
                                     <input
                                         type="date"
                                         placeholder="Check in"
-                                        className="px-4 py-1 mt-2 mb-3 border rounded-full"
+                                        className="px-4 py-1 mt-2 mb-3 border rounded-xl"
                                     />
                                 </div>
                                 <div className="col-span-2">
@@ -72,7 +72,7 @@ export default function Hero() {
                                     <input
                                         type="date"
                                         placeholder="Check out"
-                                        className="px-4 py-1 mt-2 mb-3 border rounded-full"
+                                        className="px-4 py-1 mt-2 mb-3 border rounded-xl"
                                     />
                                 </div>
                                 <div className="col-span-2">
@@ -81,16 +81,17 @@ export default function Hero() {
                                         type="number"
                                         min="1"
                                         placeholder="Guests"
-                                        className="px-4 py-1 mt-2 mb-3 border rounded-full placeholder-gray-600"
+                                        className="px-4 py-1 mt-2 mb-3 border rounded-xl placeholder-gray-600"
                                     />
                                 </div>
                                 <div className='col-span-2'>
                                     <button
-                                        className="bg-purple-500 text-white font-bold px-20 py-2 my-6 mx-16 rounded-full w-full sm:w-auto"
-                                        onClick={() => searchHotelByCity(city)} // Trigger search function
+                                        className="bg-purple-500 ml-28  text-white font-bold rounded-full w-full sm:w-auto xl:w-full h-[105px]"
+                                        onClick={() => searchHotelByCity(city)}
                                     >
                                         Search
                                     </button>
+
                                 </div>
                             </div>
                         </div>
@@ -103,19 +104,18 @@ export default function Hero() {
                     <img
                         src={images[currentImageIndex]}
                         alt={`Carousel Image ${currentImageIndex + 1}`}
-                        className="w-auto shadow-lg transition-all duration-500 ease-in-out"
+                        className="w-auto shadow-lg transition-all duration-500 ease-in-out w-[1200px]"
                     />
                     {/* Bullet Navigation */}
-                    <div className="flex space-x-2 mt-4">
+                    <div className="flex space-x-1 mt-2">
                         {images.map((_, index) => (
                             <button
                                 key={index}
                                 onClick={() => selectImage(index)} // Set current image on bullet click
-                                className={`w-2 h-2 rounded-full ${
-                                    currentImageIndex === index
+                                className={`w-2 h-2 rounded-full ${currentImageIndex === index
                                         ? "bg-black"
                                         : "bg-gray-300"
-                                }`}
+                                    }`}
                             />
                         ))}
                     </div>
@@ -125,15 +125,15 @@ export default function Hero() {
                 {/* Additional sections */}
                 <div className="col-span-1 p-10">
                     <h2 className="text-xl mb-1">24/7 Customer Support</h2>
-                    <h2 className="text-l mb-1 font-bold text-black">24/7 support means customers can get help and find answers to questions as soon as they come up—24/7 and in real-time.</h2>
+                    <h2 className="text-l mb-1 text-black">24/7 support means customers can get help and find answers to questions as soon as they come up—24/7 and in real-time.</h2>
                 </div>
                 <div className="col-span-1 p-10">
                     <h2 className="text-xl mb-1">100 Client Satisfaction</h2>
-                    <h2 className="text-l mb-1 font-bold text-black">Customer satisfaction is a central goal for most businesses, but it is a myth that it is possible to achieve 100% customer satisfaction.</h2>
+                    <h2 className="text-l mb-1 text-black">Customer satisfaction is a central goal for most businesses, but it is a myth that it is possible to achieve 100% customer satisfaction.</h2>
                 </div>
                 <div className="col-span-1 p-10">
                     <h2 className="text-xl mb-1">100% Money Back</h2>
-                    <h2 className="text-l mb-1 font-bold text-black">You will refund the full price of the product or service the customer is returning.</h2>
+                    <h2 className="text-l mb-1 text-black">You will refund the full price of the product or service the customer is returning.</h2>
                 </div>
             </section >
         </>
