@@ -6,7 +6,7 @@ export default function ServicesSection() {
         >
             <div className="container mx-auto text-center max-w-4xl">
                 <h2 className="text-3xl md:text-4xl font-bold text-white mb-10">What We Can Do</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:w-full w-[370px] lg:pl-auto px-9 lg:h-full h-[1100px]">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:w-full lg:h-full h-[1100px]">
                     {/* Card 1 */}
                     <div className="bg-white shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
                         <img
