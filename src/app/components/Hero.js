@@ -100,7 +100,7 @@ export default function Hero() {
                                         <input
                                             type="date"
                                             placeholder="Check in"
-                                            className="lg:px-4 px-12 py-1 lg:mt-2 mt-1 mb-3 border rounded-xl"
+                                            className="lg:px-4 px-12 py-1 lg:mt-2 mt-1 mb-3 border rounded-xl bg-white"
                                         />
                                     </div>
                                     <div className="col-span-2">
@@ -108,7 +108,7 @@ export default function Hero() {
                                         <input
                                             type="date"
                                             placeholder="Check out"
-                                            className="lg:px-4 px-12 py-1 lg:mt-2 mt-1 mb-3 border rounded-xl"
+                                            className="lg:px-4 px-12 py-1 lg:mt-2 mt-1 mb-3 border rounded-xl bg-white"
                                         />
                                     </div>
                                     <div className="col-span-2">
