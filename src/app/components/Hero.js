@@ -69,7 +69,7 @@ export default function Hero() {
                         </div>
 
                         {/* Mobile menu (hidden by default, displayed when toggled) */}
-                        <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'} mt-4 absolute z-50 w-full bg-custom-gradient py-12`}>
+                        <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'} mt-4 absolute z-50 w-full bg-custom-gradient py-10`}>
                             <ul className="space-y-3 text-white text-xl font-medium pl-5">
                                 <li><Link href="/" onClick={() => setIsMenuOpen(false)}>Home</Link></li>
                                 <li><Link href="/about" onClick={() => setIsMenuOpen(false)}>About Us</Link></li>
@@ -87,37 +87,37 @@ export default function Hero() {
                                 {/* Form for searching hotels */}
                                 <div className="flex items-center grid grid-cols-1 xl:grid xl:grid-cols-12">
                                     <div className="col-span-3 lg:ml-10">
-                                        <div className="mt-2 text-l font-bold">Location</div>
+                                        <div className="mt-2 text-l font-bold lg:ml-2">Location</div>
                                         <input
                                             type="text"
                                             placeholder="Enter Your City..."
-                                            className="px-4 py-1 lg:mt-2 mt-1 mb-3 border rounded-xl placeholder-gray-600"
+                                            className="lg:px-4 lg:w-[230px] w-[230px] py-1 px-2 lg:mt-2 mt-1 lg:mb-3 mb-1 border rounded-xl placeholder-gray-600"
                                             onChange={(e) => setCity(e.target.value)} // Update city state
                                         />
                                     </div>
                                     <div className="col-span-2">
-                                        <div className="lg:mt-2 mt-1 text-l font-bold">Check in</div>
+                                        <div className="lg:mt-2 mt-1 text-l font-bold lg:ml-2">Check in</div>
                                         <input
                                             type="date"
                                             placeholder="Check in"
-                                            className="lg:px-4 px-12 py-1 lg:mt-2 mt-1 mb-3 border rounded-xl bg-white"
+                                            className="lg:px-4 lg:w-[180px] w-[230px] py-1 px-2 lg:mt-2 mt-1 lg:mb-3 mb-1 border rounded-xl bg-white"
                                         />
                                     </div>
                                     <div className="col-span-2">
-                                        <div className='lg:mt-2 mt-1 text-l font-bold'>Check out</div>
+                                        <div className='lg:mt-2 mt-1 text-l font-bold lg:ml-3'>Check out</div>
                                         <input
                                             type="date"
                                             placeholder="Check out"
-                                            className="lg:px-4 px-12 py-1 lg:mt-2 mt-1 mb-3 border rounded-xl bg-white"
+                                            className="lg:px-4 lg:w-[180px] w-[230px] py-1 px-2 lg:ml-2 lg:mt-2 mt-1 lg:mb-3 mb-1 border rounded-xl bg-white"
                                         />
                                     </div>
                                     <div className="col-span-2">
-                                        <div className='lg:mt-2 mt-1 text-l font-bold'>Guest</div>
+                                        <div className='lg:mt-2 mt-1 text-l font-bold lg:ml-4'>Guest</div>
                                         <input
                                             type="number"
                                             min="1"
                                             placeholder="Guests"
-                                            className="px-4 py-1 lg:mt-2 mt-1 mb-3 border rounded-xl placeholder-gray-600"
+                                            className="lg:px-4 lg:w-[230px] w-[230px] py-1 px-2 lg:mt-2 mt-1 lg:mb-3 mb-2 lg:ml-3 border rounded-xl placeholder-gray-600"
                                         />
                                     </div>
                                     <div className='col-span-2 pb-4'>
