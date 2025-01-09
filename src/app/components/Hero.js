@@ -135,7 +135,7 @@ export default function Hero() {
                     </div >
                 </section>
                 <section>
-                    <div className="relative flex flex-col items-center justify-center dark:bg-white">
+                    <div className="relative flex flex-col items-center justify-center">
                         {/* Display current image */}
                         <img
                             src={images[currentImageIndex]}
