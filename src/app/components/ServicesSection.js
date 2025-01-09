@@ -5,14 +5,14 @@ export default function ServicesSection() {
             style={{ backgroundImage: "url('keypoint.jpg')" }}
         >
             <div className="container mx-auto text-center max-w-4xl">
-                <h2 className="text-3xl font-bold text-white mb-10">What We Can Do</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-10">What We Can Do</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:w-full w-[370px] lg:pl-auto px-9 lg:h-full h-[1100px]">
                     {/* Card 1 */}
                     <div className="bg-white shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
                         <img
                             src="keypoint.jpg"
                             alt="Helpkey Point"
-                            className="w-full h-64 object-cover"
+                            className="w-full h-64 sm:h-48 md:h-64 object-cover"
                         />
                         <div className="p-6">
                             <h3 className="text-2xl font-bold text-red-600 mb-4">Helpkey Point</h3>
@@ -31,7 +31,7 @@ export default function ServicesSection() {
                         <img
                             src="keyservices.png"
                             alt="Helpkey Services"
-                            className="w-full h-64 object-cover"
+                            className="w-full h-64 sm:h-48 md:h-64 object-cover"
                         />
                         <div className="p-6">
                             <h3 className="text-2xl font-bold text-red-600 mb-4">Helpkey Services</h3>
@@ -48,6 +48,7 @@ export default function ServicesSection() {
                 </div>
             </div>
         </div>
+
 
     );
 }
