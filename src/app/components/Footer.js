@@ -5,10 +5,10 @@ export default function Footer() {
         <footer className="container mx-auto bg-gradient text-white py-7 relative">
   <div className="flex flex-col lg:flex-row justify-between items-center px-5 space-y-4 lg:space-y-0">
     {/* Copyright */}
-    <p className="text-sm text-center lg:text-left">Copyright © 2023 | Helpkey</p>
+    <p className="text-sm lg:font-medium text-center lg:text-left lg:ml-12">Copyright © 2023 | Helpkey</p>
 
     {/* Social Media Icons */}
-    <div className="flex justify-center lg:justify-end space-x-4">
+    <div className="flex justify-center lg:justify-end lg:mr-16 space-x-4">
       <a href="#" aria-label="Facebook" className="hover:opacity-75 text-lg">
         <i className="fab fa-facebook-f"></i>
       </a>

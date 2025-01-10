@@ -1,11 +1,13 @@
 'use client'
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import { format } from "date-fns";
 
 export default function Hero() {
     const [city, setCity] = useState(""); // State to track user input for city
     const [currentImageIndex, setCurrentImageIndex] = useState(0); // State to track the current carousel image index
     const [isMenuOpen, setIsMenuOpen] = useState(false); // State to toggle the menu
+    const [selectedDate, setSelectedDate] = useState("");
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen); // Toggle the menu open/close
@@ -30,6 +32,14 @@ export default function Hero() {
 
     const selectImage = (index) => {
         setCurrentImageIndex(index);
+    };
+
+    const handleDateChange = (e) => {
+        if (e.target.value) {
+            const date = new Date(e.target.value); // Convert selected value to Date
+            const formattedDate = format(date, "EEE, d MMM"); // Format as 'Fri, 3 Jan'
+            setSelectedDate(formattedDate);
+        }
     };
 
     return (
@@ -81,9 +91,9 @@ export default function Hero() {
                             </ul>
                         </div>
 
-
-                        <div className="flex justify-center lg:my-28 my-5">
-                            <div className="bg-gray-200 px-4 lg:rounded-full shadow-lg lg:w-full w-[400px] lg:h-[105px] lg:max-w-6xl">
+                        {/* for laptop view */}
+                        <div className="hidden md:flex justify-center lg:my-28 my-5 ">
+                            <div className="bg-gray-200 px-4 lg:rounded-full shadow-lg lg:w-full w-[310px] lg:h-[110px] h-[290px] lg:max-w-6xl">
                                 {/* Form for searching hotels */}
                                 <div className="flex items-center grid grid-cols-1 xl:grid xl:grid-cols-12">
                                     <div className="col-span-3 lg:ml-10">
@@ -122,7 +132,7 @@ export default function Hero() {
                                     </div>
                                     <div className='col-span-2 pb-4'>
                                         <button
-                                            className="bg-purple-500 lg:ml-28  text-white font-bold lg:rounded-full w-full sm:w-auto xl:w-full lg:h-[105px] h-10"
+                                            className="bg-purple-500 lg:ml-28 text-white font-bold rounded-full lg:w-full w-[310px] lg:h-[110px] h-10 lg:mt-0 mt-4"
                                             onClick={() => searchHotelByCity(city)}
                                         >
                                             Search
@@ -132,6 +142,124 @@ export default function Hero() {
                                 </div>
                             </div>
                         </div>
+
+                        {/* for mobile view */}
+                        <div className="lg:hidden flex justify-center my-24 ">
+                            <div className="bg-gray-200 shadow-lg w-[345px] h-[133px] rounded-[15px]">
+                                {/* Form for searching hotels */}
+                                <div className="flex items-center grid grid-cols-8">
+                                    <div className="col-span-8 border-b border-slate-400 flex px-3 py-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-10 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a7 7 0 11-7 7 7 7 0 017-7zM21 21l-5.2-5.2" />
+                                        </svg>
+                                        <input
+                                            type="text"
+                                            placeholder="Enter Your City..."
+                                            className="w-full py-1 px-3 mt-1 mb-1 placeholder-black bg-transparent focus:outline-none"
+                                            onChange={(e) => setCity(e.target.value)} // Update city state
+                                        />
+                                    </div>
+                                    <div className="col-span-3 py-1 px-2">
+                                        <div className="text-l font-medium text-gray-600 ">Check in</div>
+                                        <div className="relative">
+                                            {/* Hidden Native Date Input */}
+                                            <input
+                                                type="date"
+                                                onChange={handleDateChange} // Event handler to update state
+                                                className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                                            />
+                                            {/* Custom Display */}
+                                            <div className="flex items-center w-[140px] py-2 bg-transparent ">
+                                                {selectedDate ? (
+                                                    <span className="text-black">{selectedDate}</span> // Show selected date
+                                                ) : (
+                                                    <span className="text-black">Select date</span> // Show placeholder
+                                                )}
+                                                {/* Custom Calendar Icon */}
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    className="w-5 h-5 ml-2 text-black"
+                                                    fill="none"
+                                                    viewBox="0 0 24 24"
+                                                    stroke="currentColor"
+                                                >
+                                                    <path
+                                                        strokeLinecap="round"
+                                                        strokeLinejoin="round"
+                                                        strokeWidth={2}
+                                                        d="M8 7V3m8 4V3m-9 8h10m-9 4h8m-7 4h6m6-8h.01M4 4h16v16H4V4z"
+                                                    />
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-span-3 border-x border-slate-400 py-1 px-2">
+                                        <div className='mt-1 text-l font-medium text-gray-600'>Check out</div>
+                                        <div className="relative">
+                                            {/* Hidden Native Date Input */}
+                                            <input
+                                                type="date"
+                                                onChange={handleDateChange} // Event handler to update state
+                                                className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                                            />
+                                            {/* Custom Display */}
+                                            <div className="flex items-center w-[140px] py-2 bg-transparent">
+                                                {selectedDate ? (
+                                                    <span className="text-black">{selectedDate}</span> // Show selected date
+                                                ) : (
+                                                    <span className="text-black">Select date</span> // Show placeholder
+                                                )}
+                                                {/* Custom Calendar Icon */}
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    className="w-5 h-5 ml-2 text-black"
+                                                    fill="none"
+                                                    viewBox="0 0 24 24"
+                                                    stroke="currentColor"
+                                                >
+                                                    <path
+                                                        strokeLinecap="round"
+                                                        strokeLinejoin="round"
+                                                        strokeWidth={2}
+                                                        d="M8 7V3m8 4V3m-9 8h10m-9 4h8m-7 4h6m6-8h.01M4 4h16v16H4V4z"
+                                                    />
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-span-2">
+                                        <div className="mt-1 text-l font-medium text-gray-600 px-1">Guests</div>
+
+                                        <select
+                                            className="mt-1 mb-2 placeholder-black bg-transparent text-black text-sm py-2 focus:outline-none"
+                                            defaultValue="1" // Set default value to 1 guest
+                                        >
+                                            {/* Options for selecting number of guests */}
+                                            <option value="1">1 Guest</option>
+                                            <option value="2">2 Guests</option>
+                                            <option value="3">3 Guests</option>
+                                            <option value="4">4 Guests</option>
+                                            <option value="5">5 Guests</option>
+                                            <option value="6">6 Guests</option>
+                                            <option value="7">7 Guests</option>
+                                            <option value="8">8 Guests</option>
+                                            <option value="9">9 Guests</option>
+                                            <option value="10">10 Guests</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div className='lg:hidden col-span-2 pb-4'>
+                                    <button
+                                        className="bg-purple-500 text-xl text-white font-medium rounded-full w-[345px] h-10 mt-8"
+                                        onClick={() => searchHotelByCity(city)}
+                                    >
+                                        Search
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+
                     </div >
                 </section>
                 <section>
