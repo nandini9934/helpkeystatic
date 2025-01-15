@@ -8,9 +8,14 @@ export default function Hero() {
     const [currentImageIndex, setCurrentImageIndex] = useState(0); // State to track the current carousel image index
     const [isMenuOpen, setIsMenuOpen] = useState(false); // State to toggle the menu
     const [selectedDate, setSelectedDate] = useState("");
+    const [openDropdown, setOpenDropdown] = useState(null); // Keeps track of the open dropdown
+
+    const toggleDropdown = (dropdownName) => {
+        setOpenDropdown((prev) => (prev === dropdownName ? null : dropdownName));
+    };
 
     const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen); // Toggle the menu open/close
+        setIsMenuOpen(!isMenuOpen);// Toggle the menu open/close
     };
     // Array holding image URLs for the carousel
     const images = [
@@ -54,9 +59,75 @@ export default function Hero() {
                             {/* Navbar links for large screens */}
                             <ul className="hidden md:flex space-x-10 text-xl text-white font-medium">
                                 <li><Link href="/">Home</Link></li>
-                                <li><Link href="/about">About Us</Link></li>
-                                <li><Link href="/services">Services</Link></li>
-                                <li><Link href="/features">Features</Link></li>
+                                <li><Link href="/aboutus">About Us</Link></li>
+                                {/* Services Dropdown */}
+                                <li className="relative">
+                                    <button
+                                        className="flex items-center space-x-1 text-white"
+                                        onClick={() => toggleDropdown("services")}
+                                    >
+                                        <span>Services</span>
+                                        <svg
+                                            className={`w-4 h-4 transform ${openDropdown === "services" ? "rotate-180" : "rotate-0"}`}
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 20 20"
+                                            fill="currentColor"
+                                        >
+                                            <path
+                                                fillRule="evenodd"
+                                                d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.25 4.25a.75.75 0 01-1.06 0L5.23 8.27a.75.75 0 01.02-1.06z"
+                                                clipRule="evenodd"
+                                            />
+                                        </svg>
+                                    </button>
+
+                                    {openDropdown === "services" && (
+                                        <ul className="absolute left-0 mt-2 bg-white border border-gray-200 rounded shadow-lg w-[200px]">
+                                            <li className="px-4 py-2 hover:bg-gray-200 text-gray-700">
+                                                <Link href="/helpkeypoint">Helpkey Point</Link>
+                                            </li>
+                                            <li className="px-4 py-2 hover:bg-gray-200 text-gray-700">
+                                                <Link href="/helpkeyservices">Helpkey Services</Link>
+                                            </li>
+                                        </ul>
+                                    )}
+                                </li>
+
+                                {/* Features Dropdown */}
+                                <li className="relative">
+                                    <button
+                                        className="flex items-center space-x-1 text-white"
+                                        onClick={() => toggleDropdown("features")}
+                                    >
+                                        <span>Features</span>
+                                        <svg
+                                            className={`w-4 h-4 transform ${openDropdown === "features" ? "rotate-180" : "rotate-0"}`}
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 20 20"
+                                            fill="currentColor"
+                                        >
+                                            <path
+                                                fillRule="evenodd"
+                                                d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.25 4.25a.75.75 0 01-1.06 0L5.23 8.27a.75.75 0 01.02-1.06z"
+                                                clipRule="evenodd"
+                                            />
+                                        </svg>
+                                    </button>
+
+                                    {openDropdown === "features" && (
+                                        <ul className="absolute left-0 mt-2 bg-white border border-gray-200 rounded shadow-lg w-[200px]">
+                                            <li className="px-4 py-2 hover:bg-gray-200 text-gray-700">
+                                                <Link href="/features/share-and-earn">Share & Earn</Link>
+                                            </li>
+                                            <li className="px-4 py-2 hover:bg-gray-200 text-gray-700">
+                                                <Link href="/features/help-and-support">Help & Support</Link>
+                                            </li>
+                                            <li className="px-4 py-2 hover:bg-gray-200 text-gray-700">
+                                                <Link href="/features/qr-code-card">Helpkey QR Code & Card</Link>
+                                            </li>
+                                        </ul>
+                                    )}
+                                </li>
                                 <li><Link href="/recruitment">Recruitment</Link></li>
                                 <li><Link href="/contact">Contact Us</Link></li>
                                 <li><Link href="/app-download">Application Download</Link></li>
@@ -82,9 +153,85 @@ export default function Hero() {
                         <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'} mt-4 absolute z-50 w-full bg-custom-gradient py-10`}>
                             <ul className="space-y-3 text-white text-xl font-medium pl-5">
                                 <li><Link href="/" onClick={() => setIsMenuOpen(false)}>Home</Link></li>
-                                <li><Link href="/about" onClick={() => setIsMenuOpen(false)}>About Us</Link></li>
-                                <li><Link href="/services" onClick={() => setIsMenuOpen(false)}>Services</Link></li>
-                                <li><Link href="/features" onClick={() => setIsMenuOpen(false)}>Features</Link></li>
+                                <li><Link href="/aboutus" onClick={() => setIsMenuOpen(false)}>About Us</Link></li>
+                                {/* Services Dropdown */}
+                                <li className="relative">
+                                    <button
+                                        className="flex items-center justify-between w-full text-left"
+                                        onClick={() => toggleDropdown("services")}
+                                    >
+                                        <span>Services</span>
+                                        <svg
+                                            className={`w-4 h-4 transform ${openDropdown === "services" ? "rotate-180" : "rotate-0"}`}
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 20 20"
+                                            fill="currentColor"
+                                        >
+                                            <path
+                                                fillRule="evenodd"
+                                                d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.25 4.25a.75.75 0 01-1.06 0L5.23 8.27a.75.75 0 01.02-1.06z"
+                                                clipRule="evenodd"
+                                            />
+                                        </svg>
+                                    </button>
+
+                                    {openDropdown === "services" && (
+                                        <ul className="mt-2 text-white">
+                                            <li className="px-4 py-2 hover:bg-gray-700">
+                                                <Link href="/helpkeypoint" onClick={() => setIsMenuOpen(false)}>
+                                                    Helpkey Point
+                                                </Link>
+                                            </li>
+                                            <li className="px-4 py-2 hover:bg-gray-700">
+                                                <Link href="/helpkeyservices" onClick={() => setIsMenuOpen(false)}>
+                                                    Helpkey Services
+                                                </Link>
+                                            </li>
+                                        </ul>
+                                    )}
+                                </li>
+
+                                {/* Features Dropdown */}
+                                <li className="relative">
+                                    <button
+                                        className="flex items-center justify-between w-full text-left"
+                                        onClick={() => toggleDropdown("features")}
+                                    >
+                                        <span>Features</span>
+                                        <svg
+                                            className={`w-4 h-4 transform ${openDropdown === "features" ? "rotate-180" : "rotate-0"}`}
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 20 20"
+                                            fill="currentColor"
+                                        >
+                                            <path
+                                                fillRule="evenodd"
+                                                d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.25 4.25a.75.75 0 01-1.06 0L5.23 8.27a.75.75 0 01.02-1.06z"
+                                                clipRule="evenodd"
+                                            />
+                                        </svg>
+                                    </button>
+
+                                    {openDropdown === "features" && (
+                                        <ul className="mt-2 text-white">
+                                            <li className="px-4 py-2 hover:bg-gray-700">
+                                                <Link href="/features/share-and-earn" onClick={() => setIsMenuOpen(false)}>
+                                                    Share & Earn
+                                                </Link>
+                                            </li>
+                                            <li className="px-4 py-2 hover:bg-gray-700">
+                                                <Link href="/features/help-and-support" onClick={() => setIsMenuOpen(false)}>
+                                                    Help & Support
+                                                </Link>
+                                            </li>
+                                            <li className="px-4 py-2 hover:bg-gray-700">
+                                                <Link href="/features/qr-code-card" onClick={() => setIsMenuOpen(false)}>
+                                                    Helpkey QR Code & Card
+                                                </Link>
+                                            </li>
+                                        </ul>
+                                    )}
+                                </li>
                                 <li><Link href="/recruitment" onClick={() => setIsMenuOpen(false)}>Recruitment</Link></li>
                                 <li><Link href="/contact" onClick={() => setIsMenuOpen(false)}>Contact Us</Link></li>
                                 <li><Link href="/app-download" onClick={() => setIsMenuOpen(false)}>Application Download</Link></li>
