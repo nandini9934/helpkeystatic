@@ -129,8 +129,8 @@ export default function Hero() {
                                     )}
                                 </li>
                                 <li><Link href="/recruitment">Recruitment</Link></li>
-                                <li><Link href="/contact">Contact Us</Link></li>
-                                <li><Link href="/app-download">Application Download</Link></li>
+                                <li><Link href="/contactus">Contact Us</Link></li>
+                                <li><Link href="https://play.google.com/store/apps/details?id=com.helpkey.services">Application Download</Link></li>
                             </ul>
 
                             {/* Hamburger Menu for small screens */}
@@ -233,8 +233,8 @@ export default function Hero() {
                                     )}
                                 </li>
                                 <li><Link href="/recruitment" onClick={() => setIsMenuOpen(false)}>Recruitment</Link></li>
-                                <li><Link href="/contact" onClick={() => setIsMenuOpen(false)}>Contact Us</Link></li>
-                                <li><Link href="/app-download" onClick={() => setIsMenuOpen(false)}>Application Download</Link></li>
+                                <li><Link href="/contactus" onClick={() => setIsMenuOpen(false)}>Contact Us</Link></li>
+                                <li><Link href="https://play.google.com/store/apps/details?id=com.helpkey.services" onClick={() => setIsMenuOpen(false)}>Application Download</Link></li>
                             </ul>
                         </div>
 
